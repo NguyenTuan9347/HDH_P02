@@ -48,8 +48,13 @@
 //	are in machine.h.
 //----------------------------------------------------------------------
 
-void
-ExceptionHandler(ExceptionType which)
+void increasePC() {
+    registers[PrevPCReg] = registers[PCReg];	// for debugging, in case we
+    registers[PCReg] = registers[NextPCReg];// are jumping into lala-land
+    registers[NextPCReg] = pcAfter;
+}
+
+void ExceptionHandler(ExceptionType which)
 {
     int type = machine->ReadRegister(2);
 
