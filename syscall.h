@@ -29,7 +29,8 @@
 #define SC_Close	8
 #define SC_Fork		9
 #define SC_Yield	10
-
+#define SC_ReadInt  11 
+#define SC_PrintInt 12
 #ifndef IN_ASM
 
 /* The system call interface.  These are the operations the Nachos
@@ -64,7 +65,10 @@ SpaceId Exec(char *name);
  */
 int Join(SpaceId id); 	
  
-
+ //Doc int from terminal
+ int ReadInt();
+//Xuat int ra terminal
+void printInd(int number);
 /* File system operations: Create, Open, Read, Write, Close
  * These functions are patterned after UNIX -- files represent
  * both files *and* hardware I/O devices.
